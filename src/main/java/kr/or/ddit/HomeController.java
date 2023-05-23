@@ -56,10 +56,9 @@ public class HomeController {
 	/*
 	 * 4. 컨트롤러 응답
 	 * 
-	 * 1) void 타입
-	 * - 호출하는 URL과 동일한 뷰 이름을 나타내기 위해 사용합니다.
+	 * 	1) void 타입
 	 * 
-	 * 
+	 * 	- 호출하는 URL과 동일한 뷰 이름을 나타내기 위해 사용합니다.
 	 */
 	
 	// 요청 경로(/goHome0101)와 동일한 뷰(/goHome0101.jsp)를 가리킨다.
@@ -200,11 +199,11 @@ public class HomeController {
 	public ResponseEntity<Void> goHome0601(){
 		log.info("goHome0601() 실행...!");
 		return new ResponseEntity<Void>(HttpStatus.OK);
+	}
 		// 내가 요청한 url로 응답이 나가면서 응답 데이터로 아무런 값이 전달되지 않는다.
 		// 해당 URL 요청 후, 브라우저에서 개발자 도구를 이용해서 네트워크 탭을 확인해보면 응답으로 URL이 응답으로 나간것을 확인할 수 있는데
 		// 이때 상태코드 200으로 정상 응답이 나간걸 확인할 수 있다.
 		// 그리고, 다른 기능으로 아무런 형태 없이 응답으로 나가지만 응답에 대한 header정보를 변경하고자 할 때 사용할 수 있다.
-	}
 	
 	/*
 	 *  7) ResponseEntity<String> 타입

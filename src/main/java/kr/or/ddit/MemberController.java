@@ -28,13 +28,11 @@ import lombok.extern.slf4j.Slf4j;
  *  	
  *  	Java.security.Principal
  *  	- 클라이언트 인증을 위한 사용자 정보를 가지고 있는 인터페이스
- *  
  */
 
 @Controller
 @Slf4j
 public class MemberController {
-	
 	/*
 	 *  5장 컨트롤러 요청 처리 시작 컨트롤러 메소드
 	 *  - 페이지를 요청해 테스트를 진행합니다.
