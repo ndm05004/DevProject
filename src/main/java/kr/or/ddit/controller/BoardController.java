@@ -27,7 +27,7 @@ public class BoardController {
 	 * - 클래스 레벨로 요청 경로를 지정하면 메소드 레벨에서 지정한 경로의 기본 경로로 취급된다.
 	 * - 클래스 레벨의 요청 경로에 메소드 레벨의 요청 경로를 덧붙인 현태가 최종 경로가 된다.
 	 */
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	
 	
