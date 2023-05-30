@@ -23,7 +23,7 @@ public class AjaxMemberFileController {
 		
 		return "member/ajaxRegisterFile";
 	}
-	//produces 속성을 이용했을때 return이 text로 나감
+	//produces 속성의 미디어 타입에 따라 데이터 타입이 명시되어 있어야함
 	@RequestMapping(value="/uploadAjax", method = RequestMethod.POST, produces="text/plain; charset=utf-8")
 	public ResponseEntity<String> uploadAjax(MultipartFile file){
 		String originalfileName = file.getOriginalFilename();
