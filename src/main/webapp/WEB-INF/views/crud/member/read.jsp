@@ -37,10 +37,53 @@
 			<td>${member.authList[2].auth }</td>
 		</tr>
 	</table>
-	<a href="/crud/member/modify?userNo=${member.userNo }">modify</a>
+	<button type="button" id="btnModify">수정</button>
 	<button type="button" id="btnRemove">삭제</button>
 	<button type="button" id="btnList">목록</button>
 	
+	<form action="/crud/member/remove" method="post" id="delForm">
+		<input type="hidden" name="userNo" value="${member.userNo }">
+	</form>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 	
 </body>
+
+<script type="text/javascript">
+
+$(function(){
+	var delForm =$("#delForm")
+	var btnModify =$("#btnModify")
+	var btnRemove = $("#btnRemove")
+	var btnList = $("#btnList")
+
+	//수정
+	btnModify.on("click", function(){
+		delForm.attr("action", "/crud/member/modify");
+		delForm.attr("method", "get");
+		delForm.submit();
+	});
+	
+	// 삭제
+	btnRemove.on("click", function(){
+		if(confirm("정말로 삭제하시겠습니까?")){
+			delForm.submit();
+		}
+	});
+	
+	// 목록
+	btnList.on("click", function(){
+		location.href="/crud/member/list";
+	});
+	
+});
+
+
+
+
+
+
+</script>
+
+
 </html>
