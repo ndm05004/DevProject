@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h2>List</h2>
-	<a href="/item2/register">상품등록</a>
+	<a href="/item3/register">상품등록</a>
 	<table border="1">
 		<tr>
 			<th align="center" width="80">상품ID</th>
@@ -32,10 +32,10 @@
 						<td>${item.itemName }</td>
 						<td>${item.price }원</td>
 						<td>
-							<a href="/item2/modify?itemId=${item.itemId }">상품편집</a>
+							<a href="/item3/modify?itemId=${item.itemId }">상품편집</a>
 						</td>
 						<td>
-							<a href="/item2/remove?itemId=${item.itemId }">상품삭제</a>
+							<a href="/item3/remove?itemId=${item.itemId }">상품삭제</a>
 						</td>
 					</tr>
 				</c:forEach>

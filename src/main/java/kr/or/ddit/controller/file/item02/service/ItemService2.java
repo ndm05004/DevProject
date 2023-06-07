@@ -10,4 +10,14 @@ public interface ItemService2 {
 
 	void register(Item2 item);
 
+	Item2 read(int itemId);
+
+	String getPicture2(int itemId);
+
+	String getPicture(int itemId);
+
+	void modify(Item2 item);
+
+	void remove(int itemId);
+
 }

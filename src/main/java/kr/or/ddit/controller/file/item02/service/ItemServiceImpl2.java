@@ -26,4 +26,35 @@ public class ItemServiceImpl2 implements ItemService2 {
 		
 	}
 
+	@Override
+	public Item2 read(int itemId) {
+		// TODO Auto-generated method stub
+		return mapper.read(itemId);
+
+	}
+
+	@Override
+	public String getPicture2(int itemId) {
+		// TODO Auto-generated method stub
+		return mapper.getPicture2(itemId);
+	}
+
+	@Override
+	public String getPicture(int itemId) {
+		// TODO Auto-generated method stub
+		return mapper.getPicture(itemId);
+	}
+
+	@Override
+	public void modify(Item2 item) {
+		mapper.modify(item);
+		
+	}
+
+	@Override
+	public void remove(int itemId) {
+		mapper.remove(itemId);
+		
+	}
+
 }
