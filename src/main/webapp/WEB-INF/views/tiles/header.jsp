@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
 	<ul class="navbar-nav">
 		<li class="nav-item"><a class="nav-link" data-widget="pushmenu"
@@ -17,13 +18,16 @@
 	<div class="sidebar">
 		<!-- Sidebar user (optional) -->
 		<div class="user-panel mt-3 pb-3 mb-3 d-flex">
-			<div class="image">
-				<img src="${member.memProfileimg }" class="img-circle elevation-2" alt="User Image">
-<%-- 				<img src="${pageContext.request.contextPath }/resources/dist/img/user2-160x160.jpg"
-					class="img-circle elevation-2" alt="User Image"> 기본값 --%>
-			</div>
+		<c:if test="${not empty member }">
+            <c:set target="${sessionScope.SessionInfo }" property="memProfileimg" value="${member.memProfileimg }"/>
+            <c:set target="${sessionScope.SessionInfo }" property="memName" value="${member.memName }"/>
+         </c:if>
+         <div class="image">
+            <!-- img src에sessionScope.SessionInfo.memProfileImg를 넣으면 본인이 저장한 이미지가 나온다. -->
+            <img src="${sessionScope.SessionInfo.memProfileimg }"  class="img-circle elevation-2" alt="User Image">
+         </div>
 			<div class="info">
-				<a href="/notice/profile.do" class="d-block">${member.memName }</a>
+				<a href="/notice/profile.do" class="d-block">${sessionScope.SessionInfo.memName }</a>
 			</div>
 		</div>
 		<nav class="mt-2">
