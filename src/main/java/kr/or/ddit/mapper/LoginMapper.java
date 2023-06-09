@@ -10,4 +10,8 @@ public interface LoginMapper {
 
 	DDITMemberVO loginCheck(DDITMemberVO memberVO);
 
+	String idForgetProcess(DDITMemberVO member);
+
+	String pwForgetProcess(DDITMemberVO member);
+
 }

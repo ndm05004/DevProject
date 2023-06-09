@@ -17,8 +17,8 @@
 					<input type="text" class="form-control" name="memName" id="memName" placeholder="이름을 입력해주세요.">
 				</div>
 				<div class="input-group mb-3">
-					<p>
-						회원님의 아이디는 [<font id="id" color="red" class="h2"></font>] 입니다.
+					<p id="id">
+						
 					</p>
 				</div>
 				<div class="row">
@@ -41,12 +41,12 @@
 			<form action="" method="post">
 				<div class="input-group mb-3">
 					<input type="text" class="form-control" id="memId" name="memId" placeholder="아이디를 입력해주세요.">
+				</div> 
+				<div class="input-group mb-3">
+					<input type="text" class="form-control" id="memEmail2" name="memEmail" placeholder="이메일을 입력해주세요.">
 				</div>
 				<div class="input-group mb-3">
-					<input type="text" class="form-control" id="memEmail" name="memEmail" placeholder="이메일을 입력해주세요.">
-				</div>
-				<div class="input-group mb-3">
-					<input type="text" class="form-control" id="memName" name="memName" placeholder="이름을 입력해주세요.">
+					<input type="text" class="form-control" id="memName2" name="memName" placeholder="이름을 입력해주세요.">
 				</div>
 				<div class="input-group mb-3">
 					<p>
@@ -70,3 +70,95 @@
 		</div>
 	</div>
 </div>
+
+<script>
+
+$(function(){
+	
+	var idFindBtn = $("#idFindBtn");
+	var pwFindBtn = $("#pwFindBtn");
+	
+	// 아이디 찾기 버튼 클릭 시 이벤트
+	idFindBtn.on("click", function(){
+		var memEmail = $("#memEmail").val()		// 이메일 값
+		var memName = $("#memName").val()		// 이메일 값
+		
+		if(memEmail == null || memEmail == ""){
+			alert("이메일을 입력해주세요!");
+			return false;
+		}
+		
+		
+		if(memName == null || memName == ""){
+			alert("이름을 입력해주세요!");
+			return false;
+		}
+		
+		var data = {
+				memName : memName,
+				memEmail : memEmail
+		}
+		
+		$.ajax({
+			type :"post",
+			url : "/notice/idForget.do",
+			contentType : "application/json",
+			data : JSON.stringify(data),
+			success : function(res) {
+				str = '회원님의 아이디는 [<font color="red" class="">'+res+'</font>] 입니다.'
+				$("#id").html(str);	// 넘겨받은 아이디를 셋팅한다.(결과 출력)
+			}
+		
+		})
+		
+		
+	})
+	
+	// 비밀번호 찾기 버튼 클릭 시 이벤트
+	pwFindBtn.on("click", function(){
+		var memEmail = $("#memEmail2").val()		// 이메일 값
+		var memId = $("#memId").val()		// 이메일 값
+		var memName = $("#memName2").val()		// 이메일 값
+		
+		if(memId == null || memId == ""){
+			alert("아이디를 입력해주세요!");
+			return false;
+		}
+		
+		
+		if(memEmail == null || memEmail == ""){
+			alert("이메일을 입력해주세요!");
+			return false;
+		}
+		
+		
+		if(memName == null || memName == ""){
+			alert("이름을 입력해주세요!");
+			return false;
+		}
+		
+		var data = {
+			memId : memId,
+			memName : memName,
+			memEmail : memEmail
+		}
+		
+		$.ajax({
+			type : "post",
+			url : "/notice/pwForget.do",
+			contentType: "application/json",
+			data : JSON.stringify(data),
+			success: function(res){
+				$("#password").html(res);
+			}
+		
+		})
+		
+		
+	})
+	
+})
+	
+</script>
+
+
