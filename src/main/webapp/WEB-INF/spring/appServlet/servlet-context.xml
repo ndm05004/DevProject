@@ -38,7 +38,7 @@
 	</beans:bean>
 
 	<!-- Tiles 설정 끝 -->
-	
+	<context:component-scan base-package="kr.or.ddit.controller"></context:component-scan>
 	<!-- 
 		서블릿 표준용  MultipartResolver 스프링 빈으로 정의
 		- standardServletMultipartResolver 사용 시 설정
@@ -48,7 +48,6 @@
 	
 	</beans:bean>
 	
-	<context:component-scan base-package="kr.or.ddit" />
 	
 	
 	

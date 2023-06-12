@@ -17,6 +17,7 @@ public class MemberService implements IMemberService {
 	@Inject
 	MemberMapper mapper;
 	
+	
 	@Override
 	public void register(MemberVO member) {
 		mapper.register(member);
